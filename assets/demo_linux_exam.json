@@ -1,0 +1,330 @@
+{
+  "meta": {
+    "exam_title": "2026年普通高等学校招生全国统一考试",
+    "subject": "Linux系统架构与工程实践",
+    "paper_type": "综合卷",
+    "paper_code": "LINUX-2026",
+    "card_type": "A",
+    "file_stem": "Linux系统架构与工程实践试卷",
+    "card_stem": "答题卡",
+    "key_stem": "参考答案与评分标准",
+    "duration_min": 120,
+    "total_score": 150,
+    "question_count": 23,
+    "pages": 4
+  },
+  "notice": [
+    "注意事项：",
+    "1．答卷前，考生务必将自己的姓名、准考证号、考场号和座位号填写在试卷指定位置上。本试卷满分 150 分，考试时间 120 分钟。",
+    "2．回答第一部分（选择题）时，选出每小题答案后，用 2B 铅笔将答题卡上对应题目的答案标号涂黑；如需改动，用橡皮擦干净后，再选涂其他答案标号。",
+    "3．回答第二、三部分（非选择题）时，将答案写在答题卡相应位置，超出答题区域书写的答案无效。",
+    "4．考试结束后，将本试卷和答题卡一并交回。"
+  ],
+  "card_notice": [
+    "1．答题前，考生务必将自己的姓名、准考证号、考场号、座位号填写清楚，并核对条形码上的信息。",
+    "2．选择题必须使用 2B 铅笔填涂，非选择题必须使用 0.5 毫米黑色墨迹签字笔书写，不得使用铅笔或圆珠笔。",
+    "3．请按题号在各题目的答题区域内作答，超出黑色矩形边框限定区域的答案无效；修改时不得使用涂改液。",
+    "4．保持答题卡清洁，严禁折叠、污损，严禁在答题卡上做任何标记。"
+  ],
+  "sections": [
+    {
+      "heading": "选择题",
+      "type": "choice",
+      "instruction": "本题共 10 小题，每小题 5 分，共 50 分。在每小题给出的四个选项中，第 1～2 题为单项选择题，第 3～10 题为不定项选择题（有一个或多个选项符合题目要求，全部选对的得 5 分，选对但不全的得 2 分，有选错或不答的得 0 分）。",
+      "card_heading": "一、选择题（每小题 5 分，共 50 分。1～2 题为单选，3～10 题为不定项选择）",
+      "card_hint": "",
+      "questions": [
+        {
+          "stem": "1．下列关于 Linux 内核版本号（如 6.12.0-rc3）的说法，正确的是（　　）",
+          "options": [
+            "6 为主版本号，12 为修订号",
+            "rc3 表示第 3 个候选发布版本，一般不建议用于生产环境",
+            "版本号第三段固定为 0，仅表示编译次数",
+            "只有次版本号为偶数的内核才是稳定版"
+          ]
+        },
+        {
+          "stem": "2．在 Linux 虚拟文件系统（VFS）中，用于描述“一个被打开的文件”、并保存当前读写位置的对象是（　　）",
+          "options": [
+            "struct file",
+            "struct inode",
+            "struct dentry",
+            "struct super_block"
+          ]
+        },
+        {
+          "stem": "3．关于 systemd 的单元依赖与启动顺序，下列说法正确的有（　　）",
+          "options": [
+            "default.target 通常是 multi-user.target 或 graphical.target 的符号链接，决定默认启动目标",
+            "Wants= 表示弱依赖，被依赖单元启动失败不会阻止本单元启动",
+            "After= 既规定启动顺序也是强依赖，被依赖单元失败时本单元必然失败",
+            "[Install] 段的 WantedBy= 决定 systemctl enable 时符号链接创建到哪个 .wants 目录"
+          ]
+        },
+        {
+          "stem": "4．关于 Linux 的权限位与 capability 机制，下列说法正确的有（　　）",
+          "options": [
+            "所有者执行位上的 s 位即 SUID，但内核不会对 shell 脚本解释执行该位",
+            "CAP_NET_BIND_SERVICE 允许普通进程绑定 1024 以下的端口",
+            "permitted 集合中有而 effective 集合中没有的能力，不会被进程实际使用",
+            "chmod 4755 与 setcap cap_net_raw+ep 对二进制文件的作用完全等价"
+          ]
+        },
+        {
+          "stem": "5．关于 /proc 与 /sys 文件系统，下列说法正确的有（　　）",
+          "options": [
+            "/proc/<pid>/status 中的 VmRSS 表示该进程当前占用的物理内存驻留集大小",
+            "/proc/meminfo 中的 MemAvailable 表示完全空闲、从未被使用的内存",
+            "cgroup v2 统一挂载于 /sys/fs/cgroup，可在其中读写各控制器的控制文件",
+            "两者都是内存中的伪文件系统，内容不落盘，重启后仍会保留"
+          ]
+        },
+        {
+          "stem": "6．关于 Linux 的 I/O 栈与文件系统，下列说法正确的有（　　）",
+          "options": [
+            "ext4 的 data=ordered 模式要求数据块在相关元数据提交之前写入磁盘",
+            "iostat -x 的 %util 长时间接近 100%，通常说明该设备已接近饱和",
+            "O_DIRECT 绕过页缓存，适合由应用自行管理缓存的场景",
+            "ionice 只在块设备层生效，cgroup v2 的 io 控制器无法限制 I/O 权重"
+          ]
+        },
+        {
+          "stem": "7．关于命名空间、cgroup 与容器隔离，下列说法正确的有（　　）",
+          "options": [
+            "unshare -m 创建新的 mount namespace 后，其中的挂载不影响宿主机其他进程",
+            "cgroup v2 的 memory.max 限制该组内进程的内存总量，超限时通常触发 OOM killer",
+            "容器与宿主机共享同一内核，内核漏洞可能被用于突破容器隔离",
+            "容器内进程看到的 PID 与其在宿主机上的 PID 始终相同"
+          ]
+        },
+        {
+          "stem": "8．关于 bash 与常用文本处理命令，下列说法正确的有（　　）",
+          "options": [
+            "set -euo pipefail 中的 -e 表示命令返回非零状态时立即退出",
+            "find . -print0 配合 xargs -0 能正确处理含空格或换行的文件名",
+            "awk 中 FNR 表示自 awk 启动以来读入的记录总数",
+            "${var%%.*} 表示从变量值尾部删除最长的、以点开头的部分"
+          ]
+        },
+        {
+          "stem": "9．关于系统启动流程与内核参数，下列说法正确的有（　　）",
+          "options": [
+            "grub.cfg 应由 grub-mkconfig 依据 /etc/default/grub 与 /etc/grub.d/ 生成",
+            "initramfs 被解压到内存后长期驻留，并在 switch_root 之后供内核随机访问",
+            "内核参数 init=/bin/bash 可让内核直接以 bash 作为第一个用户态进程，常用于救援",
+            "内核参数 root=UUID=… 用于指定真正的根文件系统"
+          ]
+        },
+        {
+          "stem": "10．关于 Linux 性能观测工具，下列说法正确的有（　　）",
+          "options": [
+            "perf top 通过周期性采样统计热点函数，属于采样型剖析",
+            "bpftrace 与 strace 都基于 ptrace，二者对被跟踪进程的开销相近",
+            "strace -c 汇总各系统调用的耗时，但会显著放大被测进程的开销",
+            "火焰图中某个调用栈的横向宽度，反映该栈在采样中出现的比例"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "填空题",
+      "type": "fill",
+      "instruction": "本题共 5 小题，每小题 4 分，共 20 分。",
+      "card_heading": "二、填空题",
+      "card_score": "每小题 4 分，共 20 分",
+      "points_each": 4,
+      "questions": [
+        {
+          "stem": "11．在 Linux 中，/proc/1234/________ 目录下的每个条目对应进程 1234 的一个已打开文件；该进程的当前工作目录对应 /proc/1234/________，其可执行文件对应 /proc/1234/exe。（4 分）",
+          "score": "4 分"
+        },
+        {
+          "stem": "12．若要使本机具备 IPv4 转发能力，需将 net.ipv4.ip_forward 置为 ________；把配置写入 /etc/sysctl.d/99-forward.conf 后，执行 ________ 可立即加载，无需重启。（4 分）",
+          "score": "4 分"
+        },
+        {
+          "stem": "13．执行 df -i 可查看文件系统的 ________ 使用率；该资源耗尽时，即使 df -h 仍显示有空闲空间，也无法再创建新文件。（4 分）",
+          "score": "4 分"
+        },
+        {
+          "stem": "14．命令 ss -lntp 中，-l 表示 ________，-n 表示 ________，-p 表示显示占用套接字的进程，-t 表示只显示 TCP 套接字。（4 分）",
+          "score": "4 分"
+        },
+        {
+          "stem": "15．bash 中 ${var:?msg} 在 var 为空或未定义时的行为是 ________；${var%%.*} 的含义是 ________。（4 分）",
+          "score": "4 分"
+        }
+      ]
+    },
+    {
+      "heading": "简答题",
+      "type": "short",
+      "instruction": "本题共 4 小题，每小题 8 分，共 32 分。",
+      "card_heading": "三、简答题",
+      "card_score": "每小题 8 分，共 32 分",
+      "points_each": 8,
+      "questions": [
+        {
+          "stem": "16．简述 fork(2) 与 execve(2) 在“创建并运行一个新程序”过程中的分工，并说明写时复制（COW）为何使 fork 的开销与父进程地址空间的大小基本无关。",
+          "score": "8 分",
+          "lines": 6
+        },
+        {
+          "stem": "17．从 inode 的角度说明硬链接与符号链接的区别，并解释硬链接为什么不能跨文件系统、目录为什么通常不允许创建硬链接。",
+          "score": "8 分",
+          "lines": 6
+        },
+        {
+          "stem": "18．比较 cgroup v1 与 cgroup v2 在层级组织方式上的差异，并说明 v2 采用统一层级（unified hierarchy）解决了 v1 的哪些实际问题。",
+          "score": "8 分",
+          "lines": 6
+        },
+        {
+          "stem": "19．某服务启动后立即退出，systemctl status 显示 status=203/EXEC。说明该状态码的含义，并给出至少四条排查思路。",
+          "score": "8 分",
+          "lines": 6
+        }
+      ]
+    },
+    {
+      "heading": "综合应用题",
+      "type": "essay",
+      "instruction": "本题共 4 小题，共 48 分。",
+      "card_heading": "四、综合应用题",
+      "card_score": "共 48 分",
+      "points_each": 10,
+      "questions": [
+        {
+          "stem": "20．现有一块新磁盘 /dev/sdd 需并入卷组 vg0，并把逻辑卷 /dev/vg0/lv_data 扩容 50 GiB；该卷上的 XFS 文件系统挂载于 /data。写出完整命令序列，说明 resize2fs 与 xfs_growfs 的适用差异，并列出扩容前必须确认的事项。",
+          "score": "10 分",
+          "lines": 9
+        },
+        {
+          "stem": "21．为 /opt/app/bin/server 编写 systemd 单元文件，要求：以 app 用户运行、工作目录为 /opt/app、异常退出后自动重启且间隔 3 s、打开文件数上限 65536、禁止提权、/usr 与 /etc 只读、私有 /tmp，并允许写 /var/lib/app。同时说明 Restart=on-failure 与 Restart=always 的区别，以及 StartLimitIntervalSec 与 StartLimitBurst 的作用。",
+          "score": "12 分",
+          "lines": 13
+        },
+        {
+          "stem": "22．客户端访问 10.0.0.5:8080 一直超时。请给出分层排查的步骤与命令，并说明如何区分“端口未监听 / 防火墙拦截 / 路由不可达 / MTU 与 MSS 不匹配”四种情形。",
+          "score": "12 分",
+          "lines": 10
+        },
+        {
+          "stem": "23．用 bash 编写日志轮转脚本：扫描 /var/log/app 下的 *.log；单个文件超过 100 MiB 时切分；切分后的文件用 gzip 压缩并按“原文件名.时间戳.gz”命名；只保留最近 7 份；用 flock 防止并发执行；出错时向 stderr 打印信息并以非零状态退出。写出完整脚本并对关键行作简要说明。",
+          "score": "14 分",
+          "lines": 14
+        }
+      ]
+    }
+  ],
+  "answer_key": {
+    "choice_heading": "一、选择题（每小题 5 分，共 50 分）",
+    "choice": [
+      "B",
+      "A",
+      "ABD",
+      "ABC",
+      "AC",
+      "ABC",
+      "ABC",
+      "ABD",
+      "ACD",
+      "ACD"
+    ],
+    "choice_note": "【评分说明】第 1～2 题为单项选择，答对得 5 分；第 3～10 题为不定项选择，全部选对得 5 分，选对但不全得 2 分，有错选或不答得 0 分。",
+    "sections": [
+      {
+        "heading": "二、填空题（每小题 4 分，共 20 分）",
+        "items": [
+          {
+            "no": "11．",
+            "text": "fd；cwd。每空 2 分。"
+          },
+          {
+            "no": "12．",
+            "text": "1；sysctl --system（等价写法：sysctl -p /etc/sysctl.d/99-forward.conf）。每空 2 分。"
+          },
+          {
+            "no": "13．",
+            "text": "inode（索引节点）。答“inode 数量”同样给分，4 分。"
+          },
+          {
+            "no": "14．",
+            "text": "仅显示处于监听（LISTEN）状态的套接字；以数字形式显示地址与端口，不做名称解析。每空 2 分。"
+          },
+          {
+            "no": "15．",
+            "text": "立即输出 msg 并以非零状态退出当前 shell 或脚本；从变量值的尾部删除与给定模式相匹配的最长部分。每空 2 分。"
+          }
+        ]
+      },
+      {
+        "heading": "三、简答题（每小题 8 分，共 32 分）",
+        "items": [
+          {
+            "no": "16．",
+            "text": "fork(2) 创建子进程：复制父进程的地址空间（以写时复制方式）、文件描述符表与信号处置，子进程从 fork 返回处继续执行并返回 0，父进程返回子进程 PID；execve(2) 不创建新进程，而是用新程序的可执行映像替换当前进程的代码段、数据段、堆与栈，PID 保持不变。二者组合（fork + execve，或 vfork、posix_spawn）即可启动一个新程序。写时复制：fork 时内核只复制页表与 VMA，父子页表项指向同一物理页并置为只读；任一方写入时触发缺页，内核此时才复制该页。因此 fork 的代价取决于页表规模而非地址空间数据量；随后的 execve 会丢弃整个旧映像，被复制的页多半从未写入，COW 避免了大量无谓复制。",
+            "points": "【评分】分工 3 分；COW 机制 3 分；开销分析与结论 2 分。"
+          },
+          {
+            "no": "17．",
+            "text": "硬链接是目录项直接指向同一 inode，inode 的链接计数加一，删除任一目录项只减少计数，数据在计数为 0 且无进程打开时释放；符号链接是独立 inode（类型为 S_IFLNK），其数据内容是目标路径字符串，可跨文件系统、可指向目录或指向不存在的路径，删除目标后成为悬空链接。硬链接不能跨文件系统，是因为目录项中保存的 inode 号只在单个文件系统（同一个超级块）内唯一，跨文件系统无法定位；目录通常不允许创建硬链接，是因为会破坏目录树的树形结构（形成环），使遍历与 fsck 无法终止，故 link(2) 对目录返回 EPERM。",
+            "points": "【评分】概念与 inode 差异 4 分；不能跨文件系统的原因 2 分；目录限制的原因 2 分。"
+          },
+          {
+            "no": "18．",
+            "text": "cgroup v1 中每个控制器（cpu、memory、blkio 等）各自维护一棵独立层级，同一进程在不同控制器下可能归属不同分组，难以用一套分组表达业务边界；多控制器混挂还存在命名冲突、rename 约束以及线程与进程粒度（tasks 与 cgroup.procs）不一致等问题。cgroup v2 采用单一统一层级：进程只在一处定义归属，父子关系全局一致；控制器通过 subtree_control 逐级启用；内部节点不得挂进程的规则使资源配额可以被安全委派；并统一提供 PSI 压力指标、memory 与 io 记账、cgroup.kill 与 eBPF 挂载点。统一层级解决了 v1 分组割裂、难以整体迁移与统一治理的问题。",
+            "points": "【评分】v1 结构 3 分；v2 结构 3 分；所解决问题的说明 2 分。"
+          },
+          {
+            "no": "19．",
+            "text": "203/EXEC 表示 systemd 无法执行 ExecStart 指定的可执行文件（exec 失败），进程随即以状态 203 退出。排查：① 用 systemctl cat 与 systemd-analyze verify 核对 ExecStart 是否为绝对路径、文件是否存在；② 检查可执行权限与属主，用 file、ldd、readelf -l 确认架构与动态链接器（No such file or directory 常由解释器缺失或架构不符引起）；③ 脚本类检查 shebang 中的解释器路径是否真实存在、文件是否为 CRLF 换行；④ 确认所在挂载点未设置 noexec；⑤ 确认 SELinux 或 AppArmor 未拦截（ausearch -m avc -ts recent、dmesg）；⑥ 用 journalctl -u 单元 --no-pager 查看真实报错。",
+            "points": "【评分】含义 3 分；排查思路每条 1 分，最多 5 分。"
+          }
+        ]
+      },
+      {
+        "heading": "四、综合应用题（共 48 分）",
+        "items": [
+          {
+            "no": "20．（10 分）",
+            "lead": "参考步骤：",
+            "code": "lsblk -f; df -hT /data; vgs vg0; lvs          # 前置核对\npvcreate /dev/sdd                              # 新盘做成 PV\nvgextend vg0 /dev/sdd                          # 并入卷组\nlvextend -L +50G /dev/vg0/lv_data              # 扩逻辑卷\nxfs_growfs /data                               # XFS：对挂载点操作，须已挂载\n# ext4 则为：resize2fs /dev/vg0/lv_data（支持在线扩容）",
+            "text": "resize2fs 面向 ext2/3/4，参数可以是设备或挂载点，支持在线扩容与缩容；xfs_growfs 面向 XFS，参数是挂载点，必须在挂载状态下执行且只能增大不能缩小。扩容前须确认：底层存储（RAID 或云盘）已扩容、VG 余量充足、已备份或打快照、文件系统类型与块大小（xfs_info、dumpe2fs -h）、无 fsck 待修复错误。",
+            "points": "【评分】命令序列 6 分；两种工具差异 2 分；前置检查 2 分。"
+          },
+          {
+            "no": "21．（12 分）",
+            "lead": "参考单元文件：",
+            "code": "[Unit]\nDescription=App Server\nAfter=network-online.target\nWants=network-online.target\nStartLimitIntervalSec=60\nStartLimitBurst=5\n\n[Service]\nType=simple\nUser=app\nGroup=app\nWorkingDirectory=/opt/app\nExecStart=/opt/app/bin/server --config /opt/app/config.toml\nRestart=on-failure\nRestartSec=3s\nLimitNOFILE=65536\nNoNewPrivileges=yes\nProtectSystem=strict\nProtectHome=yes\nPrivateTmp=yes\nReadWritePaths=/var/lib/app\n\n[Install]\nWantedBy=multi-user.target",
+            "text": "Restart=on-failure 只在异常退出（非零退出码、被信号杀死、超时）时重启；Restart=always 除 systemctl stop 与正常关机外一律重启，包括退出码为 0 的情况。StartLimitBurst 与 StartLimitIntervalSec 共同定义在 Interval 秒内最多允许启动 Burst 次，超过后单元进入 failed 状态，需 systemctl reset-failed 才能再次启动，用于阻止崩溃循环。",
+            "points": "【评分】单元文件 8 分（缺项按项扣分）；两个概念各 2 分。"
+          },
+          {
+            "no": "22．（12 分）",
+            "lead": "分层排查与判读：",
+            "code": "# 客户端\nss -tn dst 10.0.0.5:8080\nnc -vz -w 3 10.0.0.5 8080\ncurl -v --max-time 5 http://10.0.0.5:8080/\nip route get 10.0.0.5 ; traceroute -T -p 8080 10.0.0.5\n# 服务端\nss -lntp | grep 8080          # 0.0.0.0:8080 还是 127.0.0.1:8080\nnft list ruleset              # 或 iptables -S\n# 两端同时抓包\ntcpdump -ni any 'tcp port 8080' -c 20",
+            "text": "判读：客户端发出 SYN 而服务端抓不到，说明路由或中间安全组、防火墙丢弃；服务端收到 SYN 却无 SYN-ACK，说明本机 INPUT 规则 DROP、listen 队列溢出（nstat -az TcpExtListenOverflows）或 conntrack 表满（dmesg 中的 nf_conntrack: table full）；服务端已回 SYN-ACK 而客户端未收到，说明回程路由或中间设备拦截；三次握手完成但无应用响应，说明进程阻塞或后端超时；小包可通、大包卡住，说明 MTU 与 MSS 不匹配，用 ping -M do -s 1472 验证，并以 TCPMSS --clamp-mss-to-pmtu 修正。",
+            "points": "【评分】分层步骤 6 分；四类情形判读 6 分。"
+          },
+          {
+            "no": "23．（14 分）",
+            "lead": "参考脚本：",
+            "code": "#!/usr/bin/env bash\nset -euo pipefail\n\nLOG_DIR=\"${LOG_DIR:-/var/log/app}\"\nMAX_BYTES=$((100 * 1024 * 1024))\nKEEP=7\nSTAMP=$(date +%Y%m%d-%H%M%S)\n\nrotate() {\n  local f size\n  for f in \"$LOG_DIR\"/*.log; do\n    [[ -f $f ]] || continue\n    size=$(stat -c %s -- \"$f\")\n    (( size > MAX_BYTES )) || continue\n    mv -- \"$f\" \"$f.$STAMP\"            # 原子改名，应用需重新打开日志\n    gzip -9 -- \"$f.$STAMP\"\n    chmod 0640 -- \"$f.$STAMP.gz\"\n  done\n  ls -1t -- \"$LOG_DIR\"/*.log.*.gz 2>/dev/null | tail -n +$((KEEP + 1)) | xargs -r rm -f --\n}\n\nexec 9>\"$LOG_DIR/.rotate.lock\"\nflock -n 9 || { echo \"another rotation is running\" >&2; exit 75; }\nrotate",
+            "text": "要点：set -euo pipefail 使错误立即暴露；stat -c %s 取字节数并做整数比较；先 mv 再 gzip，文件名带时间戳；ls -1t 按时间倒序后 tail -n +8 删除多余备份；flock -n 9 对文件描述符 9 加非阻塞排它锁，取不到锁返回 75；若应用不重开日志文件，应改用 copytruncate 方式或通知其重新打开。",
+            "points": "【评分】功能实现 6 分；健壮性（引号、空目录、错误处理）4 分；说明 4 分。"
+          }
+        ]
+      }
+    ]
+  },
+  "card": {
+    "choice_per_row": 5,
+    "lines": {
+      "fill": 1,
+      "short": 6,
+      "essay": 9
+    },
+    "theme": "C00000"
+  }
+}

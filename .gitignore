@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.DS_Store
+.idea/
+.vscode/
+
+# 生成物
+out/
+exam_out/
+exam-test/
+.preview/
+.dsh-office.*/
+*.docx
+*.pdf
+
+# 但保留预览图
+!assets/preview-*.png
